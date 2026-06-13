@@ -1,0 +1,6 @@
+{
+  "name": "AI Commerce OS",
+  "description": "Enterprise-grade multi-tenant intelligent commerce operating system with unified agent orchestration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

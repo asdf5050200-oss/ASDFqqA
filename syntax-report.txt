@@ -1,0 +1,184 @@
+Line 3700: divBalance=1 curlyBalance=0 | <div className="bg-slate-900 text-slate-100 border
+Line 3701: divBalance=2 curlyBalance=0 | <div className="space-y-4">
+Line 3702: divBalance=3 curlyBalance=0 | <div className="flex items-center justify-between 
+Line 3708: divBalance=2 curlyBalance=0 | </div>
+Line 3710: divBalance=2 curlyBalance=0 | {/* Simulator Loading or Null Screen */}
+Line 3711: divBalance=2 curlyBalance=1 | {isSimulatingPlaybook && (
+Line 3712: divBalance=3 curlyBalance=1 | <div className="py-20 flex flex-col items-center j
+Line 3713: divBalance=3 curlyBalance=1 | <div className="w-8 h-8 border-4 border-indigo-500
+Line 3715: divBalance=2 curlyBalance=1 | </div>
+Line 3716: divBalance=2 curlyBalance=0 | )}
+Line 3718: divBalance=2 curlyBalance=1 | {!isSimulatingPlaybook && !playbookSimResult && (
+Line 3719: divBalance=3 curlyBalance=1 | <div className="py-12 text-center text-slate-500 t
+Line 3723: divBalance=2 curlyBalance=1 | </div>
+Line 3724: divBalance=2 curlyBalance=0 | )}
+Line 3726: divBalance=2 curlyBalance=1 | {!isSimulatingPlaybook && playbookSimResult && (
+Line 3727: divBalance=3 curlyBalance=1 | <div className="space-y-3.5 text-[10px]">
+Line 3728: divBalance=4 curlyBalance=1 | <div>
+Line 3730: divBalance=5 curlyBalance=1 | <div className="bg-black/40 border border-slate-80
+Line 3731: divBalance=5 curlyBalance=2 | {playbookSimResult.sandboxLogs.map((log, lIdx) => 
+Line 3732: divBalance=5 curlyBalance=2 | <div key={lIdx} className="border-b border-slate-9
+Line 3733: divBalance=5 curlyBalance=1 | ))}
+Line 3734: divBalance=4 curlyBalance=1 | </div>
+Line 3735: divBalance=3 curlyBalance=1 | </div>
+Line 3737: divBalance=4 curlyBalance=1 | <div>
+Line 3739: divBalance=4 curlyBalance=1 | <span className="text-emerald-400 font-bold">{play
+Line 3740: divBalance=3 curlyBalance=1 | </div>
+Line 3742: divBalance=4 curlyBalance=1 | <div>
+Line 3745: divBalance=4 curlyBalance=1 | {playbookSimResult.compiledPrompt}
+Line 3747: divBalance=3 curlyBalance=1 | </div>
+Line 3748: divBalance=2 curlyBalance=1 | </div>
+Line 3749: divBalance=2 curlyBalance=0 | )}
+Line 3750: divBalance=1 curlyBalance=0 | </div>
+Line 3752: divBalance=1 curlyBalance=1 | {!isSimulatingPlaybook && playbookSimResult && (
+Line 3755: divBalance=1 curlyBalance=3 | onClick={() => {
+Line 3758: divBalance=1 curlyBalance=1 | }}
+Line 3763: divBalance=1 curlyBalance=0 | )}
+Line 3764: divBalance=0 curlyBalance=0 | </div>
+Line 3766: divBalance=-1 curlyBalance=0 | </div>
+Line 3767: divBalance=-2 curlyBalance=0 | </div>
+Line 3769: divBalance=-2 curlyBalance=0 | {/* ----------------- LAYER 3: 安全合规红线与失败/成功案例审计库 -
+Line 3770: divBalance=-1 curlyBalance=0 | <div className="grid grid-cols-1 xl:grid-cols-2 ga
+Line 3772: divBalance=-1 curlyBalance=0 | {/* 3A: Safety Red-lines */}
+Line 3773: divBalance=0 curlyBalance=0 | <div className="bg-white border border-slate-200 r
+Line 3774: divBalance=1 curlyBalance=0 | <div className="border-b border-slate-100 pb-3 fle
+Line 3775: divBalance=2 curlyBalance=0 | <div className="flex items-center gap-2">
+Line 3777: divBalance=3 curlyBalance=0 | <div>
+Line 3780: divBalance=2 curlyBalance=0 | </div>
+Line 3781: divBalance=1 curlyBalance=0 | </div>
+Line 3782: divBalance=0 curlyBalance=0 | </div>
+Line 3784: divBalance=1 curlyBalance=0 | <div className="space-y-3.5">
+Line 3785: divBalance=1 curlyBalance=1 | {safetyRedLines.map(rl => (
+Line 3786: divBalance=2 curlyBalance=1 | <div key={rl.id} className="p-4 bg-slate-50 border
+Line 3788: divBalance=2 curlyBalance=2 | {rl.enabled ? (
+Line 3792: divBalance=2 curlyBalance=1 | )}
+Line 3795: divBalance=3 curlyBalance=1 | <div className="flex-1 space-y-1.5 text-xs font-se
+Line 3796: divBalance=4 curlyBalance=1 | <div className="flex items-center justify-between"
+Line 3797: divBalance=4 curlyBalance=1 | <span className="font-extrabold text-slate-900 lea
+Line 3798: divBalance=4 curlyBalance=1 | <span className="text-[9px] bg-slate-250 text-slat
+Line 3799: divBalance=3 curlyBalance=1 | </div>
+Line 3800: divBalance=3 curlyBalance=1 | <p className="text-[11px] text-slate-450 leading-r
+Line 3802: divBalance=4 curlyBalance=1 | <div className="flex justify-between items-center 
+Line 3804: divBalance=4 curlyBalance=1 | <span className={rl.enabled ? "text-emerald-600" :
+Line 3808: divBalance=4 curlyBalance=1 | onClick={() => toggleSafetyRedLine(rl.id)}
+Line 3809: divBalance=4 curlyBalance=3 | className={`px-2.5 py-0.5 rounded text-[9.5px] fon
+Line 3811: divBalance=4 curlyBalance=1 | }`}
+Line 3813: divBalance=4 curlyBalance=1 | {rl.enabled ? "🟠 降防绕过" : "🟢 强制开启防线"}
+Line 3815: divBalance=3 curlyBalance=1 | </div>
+Line 3816: divBalance=2 curlyBalance=1 | </div>
+Line 3817: divBalance=1 curlyBalance=1 | </div>
+Line 3818: divBalance=1 curlyBalance=0 | ))}
+Line 3819: divBalance=0 curlyBalance=0 | </div>
+Line 3820: divBalance=-1 curlyBalance=0 | </div>
+Line 3822: divBalance=-1 curlyBalance=1 | {/* 3B: Loss Prevention Case Studies Database */
+Line 3823: divBalance=0 curlyBalance=1 | <div className="bg-white border border-slate-200 r
+Line 3824: divBalance=1 curlyBalance=1 | <div className="border-b border-slate-100 pb-3 fle
+Line 3825: divBalance=2 curlyBalance=1 | <div className="flex items-center gap-2">
+Line 3827: divBalance=3 curlyBalance=1 | <div>
+Line 3830: divBalance=2 curlyBalance=1 | </div>
+Line 3831: divBalance=1 curlyBalance=1 | </div>
+Line 3832: divBalance=0 curlyBalance=1 | </div>
+Line 3834: divBalance=1 curlyBalance=1 | <div className="space-y-4">
+Line 3835: divBalance=1 curlyBalance=1 | {/* Failure case list */}
+Line 3836: divBalance=2 curlyBalance=1 | <div className="space-y-2.5 max-h-[300px] overflow
+Line 3837: divBalance=2 curlyBalance=2 | {failureCases.map(fc => (
+Line 3838: divBalance=3 curlyBalance=2 | <div key={fc.id} className="p-3 bg-slate-50 border
+Line 3839: divBalance=4 curlyBalance=2 | <div className="flex items-center justify-between"
+Line 3842: divBalance=4 curlyBalance=2 | <span>【${fc.caseCode}】 ${fc.title}</span>
+Line 3844: divBalance=4 curlyBalance=2 | <span className="font-mono font-bold text-rose-600
+Line 3845: divBalance=3 curlyBalance=2 | </div>
+Line 3847: divBalance=3 curlyBalance=2 | <span className="font-extrabold text-slate-700">现象
+Line 3849: divBalance=4 curlyBalance=2 | <div className="flex justify-between items-center 
+Line 3850: divBalance=4 curlyBalance=2 | <span className="text-emerald-700">🛡️ 预防规则：<span 
+Line 3851: divBalance=4 curlyBalance=2 | <span className="text-indigo-600 text-[10px]">隔离层:
+Line 3852: divBalance=3 curlyBalance=2 | </div>
+Line 3853: divBalance=2 curlyBalance=2 | </div>
+Line 3854: divBalance=2 curlyBalance=1 | ))}
+Line 3855: divBalance=1 curlyBalance=1 | </div>
+Line 3857: divBalance=1 curlyBalance=1 | {/* Form to submit a new failure learning case */}
+Line 3858: divBalance=2 curlyBalance=1 | <div className="bg-slate-50 border border-slate-20
+Line 3861: divBalance=2 curlyBalance=1 | <form onSubmit={handleCreateFailureCase} className
+Line 3862: divBalance=3 curlyBalance=1 | <div>
+Line 3868: divBalance=3 curlyBalance=1 | value={newFcTitle}
+Line 3869: divBalance=3 curlyBalance=1 | onChange={e => setNewFcTitle(e.target.value)}
+Line 3872: divBalance=2 curlyBalance=1 | </div>
+Line 3874: divBalance=3 curlyBalance=1 | <div>
+Line 3880: divBalance=3 curlyBalance=1 | value={newFcLoss}
+Line 3881: divBalance=3 curlyBalance=1 | onChange={e => setNewFcLoss(e.target.value)}
+Line 3884: divBalance=2 curlyBalance=1 | </div>
+Line 3886: divBalance=3 curlyBalance=1 | <div className="md:col-span-2">
+Line 3890: divBalance=3 curlyBalance=1 | rows={2}
+Line 3892: divBalance=3 curlyBalance=1 | value={newFcSymptom}
+Line 3893: divBalance=3 curlyBalance=1 | onChange={e => setNewFcSymptom(e.target.value)}
+Line 3896: divBalance=2 curlyBalance=1 | </div>
+Line 3898: divBalance=3 curlyBalance=1 | <div className="md:col-span-2 flex justify-between
+Line 3899: divBalance=4 curlyBalance=1 | <div className="flex-1 min-w-[200px]">
+Line 3904: divBalance=4 curlyBalance=1 | value={newFcRule}
+Line 3905: divBalance=4 curlyBalance=1 | onChange={e => setNewFcRule(e.target.value)}
+Line 3908: divBalance=3 curlyBalance=1 | </div>
+Line 3916: divBalance=2 curlyBalance=1 | </div>
+Line 3918: divBalance=1 curlyBalance=1 | </div>
+Line 3920: divBalance=0 curlyBalance=1 | </div>
+Line 3921: divBalance=-1 curlyBalance=1 | </div>
+Line 3923: divBalance=-2 curlyBalance=1 | </div>
+Line 3925: divBalance=-3 curlyBalance=1 | </div>
+Line 3926: divBalance=-3 curlyBalance=0 | )}
+Line 3928: divBalance=-3 curlyBalance=0 | {/* PART 5: 📏 规则管理 */}
+Line 3929: divBalance=-3 curlyBalance=1 | {aiOpsSubTab === 'rules' && (
+Line 3930: divBalance=-2 curlyBalance=1 | <div className="grid grid-cols-1 lg:grid-cols-3 ga
+Line 3931: divBalance=-1 curlyBalance=1 | <div className="bg-white border border-slate-200 p
+Line 3933: divBalance=-1 curlyBalance=1 | <form onSubmit={handleAddRule} className="space-y-
+Line 3934: divBalance=0 curlyBalance=1 | <div>
+Line 3939: divBalance=0 curlyBalance=1 | value={newRuleIf}
+Line 3940: divBalance=0 curlyBalance=1 | onChange={e => setNewRuleIf(e.target.value)}
+Line 3944: divBalance=-1 curlyBalance=1 | </div>
+Line 3946: divBalance=0 curlyBalance=1 | <div>
+Line 3951: divBalance=0 curlyBalance=1 | value={newRuleThen}
+Line 3952: divBalance=0 curlyBalance=1 | onChange={e => setNewRuleThen(e.target.value)}
+Line 3956: divBalance=-1 curlyBalance=1 | </div>
+Line 3965: divBalance=-2 curlyBalance=1 | </div>
+Line 3967: divBalance=-1 curlyBalance=1 | <div className="bg-white border border-slate-200 p
+Line 3972: divBalance=0 curlyBalance=1 | <div className="space-y-2">
+Line 3973: divBalance=0 curlyBalance=2 | {rules.map(rule => (
+Line 3974: divBalance=1 curlyBalance=2 | <div key={rule.id} className="p-3.5 bg-slate-50 bo
+Line 3975: divBalance=2 curlyBalance=2 | <div className="space-y-1.5 pr-4">
+Line 3976: divBalance=3 curlyBalance=2 | <div className="flex items-center gap-1.5 flex-wra
+Line 3978: divBalance=3 curlyBalance=2 | <span className="text-slate-900 font-bold">{rule.i
+Line 3979: divBalance=2 curlyBalance=2 | </div>
+Line 3980: divBalance=3 curlyBalance=2 | <div className="flex items-center gap-1.5 flex-wra
+Line 3982: divBalance=3 curlyBalance=2 | <span className="text-slate-700 font-semibold">{ru
+Line 3983: divBalance=2 curlyBalance=2 | </div>
+Line 3984: divBalance=1 curlyBalance=2 | </div>
+Line 3986: divBalance=2 curlyBalance=2 | <div className="flex items-center gap-4 shrink-0 f
+Line 3987: divBalance=3 curlyBalance=2 | <div>
+Line 3989: divBalance=3 curlyBalance=2 | <p className="text-indigo-700 text-right text-xs f
+Line 3990: divBalance=2 curlyBalance=2 | </div>
+Line 3992: divBalance=2 curlyBalance=4 | onClick={() => {
+Line 3994: divBalance=2 curlyBalance=4 | onAddSystemLog('Rule Engine', '删除系统默认规则', `剥离系统规则I
+Line 3995: divBalance=2 curlyBalance=2 | }}
+Line 4000: divBalance=1 curlyBalance=2 | </div>
+Line 4001: divBalance=0 curlyBalance=2 | </div>
+Line 4002: divBalance=0 curlyBalance=1 | ))}
+Line 4003: divBalance=-1 curlyBalance=1 | </div>
+Line 4004: divBalance=-2 curlyBalance=1 | </div>
+Line 4005: divBalance=-3 curlyBalance=1 | </div>
+Line 4006: divBalance=-3 curlyBalance=0 | )}
+Line 4008: divBalance=-3 curlyBalance=0 | {/* PART 6: 📡 事件管理 */}
+Line 4009: divBalance=-3 curlyBalance=1 | {aiOpsSubTab === 'events' && (
+Line 4010: divBalance=-2 curlyBalance=1 | <div className="space-y-6 animate-fadeIn">
+Line 4011: divBalance=-1 curlyBalance=1 | <div className="bg-slate-900 text-white p-5 rounde
+Line 4012: divBalance=0 curlyBalance=1 | <div className="space-y-1 max-w-xl">
+Line 4020: divBalance=-1 curlyBalance=1 | </div>
+Line 4022: divBalance=-1 curlyBalance=1 | {/* Quick fake trigger injection */}
+Line 4023: divBalance=0 curlyBalance=1 | <div className="flex gap-2">
+Line 4025: divBalance=0 curlyBalance=3 | onClick={() => {
+Line 4026: divBalance=0 curlyBalance=3 | const rHex = `ev_tx_${Math.random().toString(16).s
+Line 4027: divBalance=0 curlyBalance=4 | const newE = {
+Line 4032: divBalance=0 curlyBalance=4 | payload: { orderId: `ord_tr_${Math.floor(Math.rand
+Line 4033: divBalance=0 curlyBalance=3 | };
+Line 4036: divBalance=0 curlyBalance=1 | }}
+Line 4042: divBalance=0 curlyBalance=3 | onClick={() => {
+Line 4043: divBalance=0 curlyBalance=3 | const rHex = `ev_tx_${Math.random().toString(16).s
+Line 4044: divBalance=0 curlyBalance=4 | const newE = {
+Line 4049: divBalance=0 curlyBalance=4 | payload: { sku: 'SKU-HEALTH-OMEGA3', stockLeft: 4,
+Line 4050: divBalance=0 curlyBalance=3 | };

@@ -1,0 +1,148 @@
+{aiOpsSubTab === 'workflows' && (
+            <div className="space-y-6 animate-fadeIn">
+              <div className="bg-indigo-50 border border-indigo-200 text-indigo-900 p-4 rounded-xl text-xs font-bold leading-relaxed">
+                ⚙️ 系统工作流拓扑拓补图 (Active Topologies)：每个商户都可以安装公共工作流，或利用开发者 SDK 注册新拓扑。点击「运行测试执行流」可产生一笔不影响商户资产的仿真流量对账流。
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {workflows.map(wf => (
+                  <div key={wf.id} className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4 flex flex-col justify-between font-sans">
+                    <div>
+                      <div className="flex justify-between items-center border-b border-slate-100 pb-2 mb-2">
+                        <span className="font-bold text-slate-800 text-xs">{wf.name}</span>
+                        <span className={`w-2 h-2 rounded-full ${wf.active ? 'bg-emerald-500 animate-pulse' : 'bg-slate-300'}`}></span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 leading-relaxed font-semibold">{wf.description}</p>
+                      
+                      {/* Steps indicator */}
+                      <div className="mt-3.5 space-y-1">
+                        <p className="text-[9px] text-slate-400 font-extrabold uppercase">拓扑流经节点 ({wf.steps.length}):</p>
+                        <div className="flex flex-wrap gap-1 pt-1">
+                          {wf.steps.map((st, sidx) => (
+                            <span key={sidx} className="text-[9.5px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-655 border border-slate-150">
+                              {st}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 pt-2 border-t border-slate-100">
+                      <div className="flex justify-between text-[10px] font-mono text-slate-400 font-bold">
+                        <span>流程格式: YAML Topology</span>
+                        <span>累计触发: {wf.executionCount}次</span>
+                      </div>
+                      
+                      <button 
+                        type="button"
+                        onClick={() => {
+                          onAddSystemLog('Workflow Engine', '测试执行流', `对「${wf.name}」下发全链路仿针对账流量`, 'info');
+                          alert(`【拓扑流测试就绪】\n- 本地沙盒对账运行正常，流经节点 ${wf.steps.length} 个均已通过签字核算，未产生实体资金交付。`);
+                        }}
+                        className="w-full text-center py-1.5 rounded bg-slate-50 hover:bg-slate-100 border border-slate-200 text-indigo-600 font-bold text-[10px] cursor-pointer"
+                      >
+                        下派测试仿真流量流
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* RAG Failure Cases sandzone */}
+              <div className="space-y-4">
+                <div className="border-b border-slate-200 pb-2">
+                  <h3 className="text-sm font-black text-slate-800 flex items-center gap-1.5">
+                    <span>📑 RAG 失败案例反省事故库 (Failure Learning & RAG Feedback Cases)</span>
+                    <span className="text-[9px] bg-red-500/10 text-red-500 px-1.5 py-0.5 rounded font-mono font-black border border-red-500/20">TOTAL: {failureCases.length}</span>
+                  </h3>
+                  <p className="text-[10px] text-slate-500 mt-0.5">收集整个 SaaS 平台在经营决策、防套汇、海运清关中产生的故障与异常。自动对齐 RAG 底座，避免智能体重复在同一个大宗场景踩坑。</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {failureCases.map(fc => (
+                    <div key={fc.id} className="p-4 bg-slate-50 border border-slate-150 rounded-xl text-xs space-y-2 hover:border-slate-350 transition-colors flex flex-col justify-between font-sans">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="font-extrabold text-slate-900 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                            <span>【{fc.caseCode}】 {fc.title}</span>
+                          </span>
+                          <span className="font-mono font-bold text-rose-600 bg-rose-50 border border-rose-100 px-2 rounded-sm text-[9.5px]">损失: {fc.lossAmount}</span>
+                        </div>
+                        <p className="text-[10px] text-slate-500 font-bold leading-relaxed bg-white p-2.5 rounded-lg border border-slate-200 mt-2 select-text">
+                          <span className="font-extrabold text-slate-700">现象：</span>{fc.symptom}
+                        </p>
+                      </div>
+                      <div className="flex justify-between items-center text-[9.5.px] font-bold border-t border-slate-100 pt-2 mt-2">
+                        <span className="text-emerald-700">🛡️ 预防规则：<span className="font-mono text-indigo-750">{fc.preventingRule}</span></span>
+                        <span className="text-indigo-600 text-[10px]">隔离层: {fc.industry}</span>
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Form to submit a new failure learning case */}
+                  <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-3 col-span-1 md:col-span-2 text-left font-sans">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-wide block">➕ 登记并从错误反面事故中学习 (注入 RAG 向量防线)</span>
+                    
+                    <form onSubmit={handleCreateFailureCase} className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
+                      <div>
+                        <label className="block text-[9px] font-bold text-slate-500 mb-1">事故简称 (Title)</label>
+                        <input 
+                          type="text"
+                          required
+                          placeholder="e.g. 美容院技师重叠超载"
+                          value={newFcTitle}
+                          onChange={e => setNewFcTitle(e.target.value)}
+                          className="w-full bg-white border border-slate-200 rounded px-2.5 py-1.5 text-[10px] focus:outline-none focus:border-indigo-500 font-medium"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-[9px] font-bold text-slate-500 mb-1">平台预计资产流失或回吐金额 (Loss Amount)</label>
+                        <input 
+                          type="text"
+                          required
+                          placeholder="e.g. $4,200 / Daily"
+                          value={newFcLoss}
+                          onChange={e => setNewFcLoss(e.target.value)}
+                          className="w-full bg-white border border-slate-200 rounded px-2.5 py-1.5 text-[10px] focus:outline-none focus:border-indigo-500 font-medium"
+                        />
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-[9px] font-bold text-slate-500 mb-1">异常事件与漏洞现象描述 (Symptom Context for Vectorizing)</label>
+                        <textarea 
+                          required
+                          rows={2}
+                          placeholder="请还原该特定场景中出现的决策失效、风控断层或者智能体逻辑空转闭环..."
+                          value={newFcSymptom}
+                          onChange={e => setNewFcSymptom(e.target.value)}
+                          className="w-full bg-white border border-slate-200 rounded px-2.5 py-1.5 text-[10px] focus:outline-none focus:border-indigo-500 font-medium"
+                        />
+                      </div>
+
+                      <div className="md:col-span-2 flex justify-between items-center gap-4 pt-1 flex-wrap md:flex-nowrap">
+                        <div className="flex-1 min-w-[200px]">
+                          <label className="block text-[9px] font-bold text-slate-500 mb-1">拟强制拦截或控制的阻滞规则 ID (Preventing Rule ID)</label>
+                          <input 
+                            type="text"
+                            placeholder="e.g. rule_limit_overlap_session"
+                            value={newFcRule}
+                            onChange={e => setNewFcRule(e.target.value)}
+                            className="w-full bg-white border border-slate-200 rounded px-2.5 py-1.5 text-[10px] focus:outline-none focus:border-indigo-500 font-mono font-bold"
+                          />
+                        </div>
+
+                        <button 
+                          type="submit"
+                          className="bg-indigo-600 hover:bg-indigo-550 text-white font-extrabold text-[10.5px] px-6 py-2.5 rounded-lg transition-all shadow-sm shrink-0 mt-3 md:mt-0 cursor-pointer"
+                        >
+                          📝 确认并注入此反向对账故障
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
